@@ -25,3 +25,6 @@ drafts/
 
 # Helper logs; experiment logs are JSON and are committed
 *.log
+
+# Local Maven repository (keeps builds inside the project)
+.m2repo/
