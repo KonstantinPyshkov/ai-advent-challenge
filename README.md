@@ -79,8 +79,8 @@ mvn package
 Самопроверки без внешних тестовых зависимостей:
 
 ```bash
-./scripts/test.sh   # Runner, Failures, Markdown, Day02, Day03
-./scripts/check.sh  # build + self-tests + dry-run Day02/Day03
+./scripts/test.sh   # Runner, Failures, Markdown, Day02, Day03, Day04
+./scripts/check.sh  # build + self-tests + dry-run Day02–Day04
 ```
 
 Интерактивный запуск — одна команда (macOS/Linux):
@@ -98,6 +98,7 @@ mvn package
 ./scripts/run.sh day1 "Перечисли три преимущества локального запуска LLM."
 ./scripts/run.sh day2
 ./scripts/run.sh day3
+./scripts/run.sh day4
 ```
 
 Для DeepSeek ключ берётся из `DEEPSEEK_API_KEY` или macOS Keychain
@@ -110,7 +111,7 @@ mvn package
 
 ```text
 core/                общий клиент, runner, проверки, отчёты
-cli/                 интерактивный лаунчер и lab day2|day3
+cli/                 интерактивный лаунчер и lab day2|day3|day4
 days/
   day_01/            минимальный запрос к Ollama
     config/          настройки дня
@@ -139,13 +140,23 @@ days/
     reports/         Markdown и CSV
     conclusions/     факты и вывод
     pom.xml
+  day_04/            температура
+    config/          настройки эксперимента
+    data/            две задачи: ответ и генерация
+    docs/            ТЗ, дизайн, запуск, результат
+    prompts/         системный промпт и промпты задач
+    src/             код эксперимента
+    logs/            журнал 30 прогонов
+    reports/         Markdown и CSV
+    conclusions/     факты и вывод
+    pom.xml
 docs/
   architecture.md    устройство проекта
   decisions.md       зафиксированные решения
 scripts/
   run.sh             интерактивный запуск и сборка
   run.cmd            запуск в Windows
-  test.sh            самопроверки core, Дня 2 и Дня 3
+  test.sh            самопроверки core, Дней 2–4
   check.sh           полная проверка перед новым днём
 ```
 
@@ -173,5 +184,6 @@ scripts/
 - [День 1](days/day_01/README.md)
 - [День 2](days/day_02/README.md)
 - [День 3](days/day_03/README.md)
+- [День 4](days/day_04/README.md)
 
 Описания последующих дней будут добавлены по мере их реализации.

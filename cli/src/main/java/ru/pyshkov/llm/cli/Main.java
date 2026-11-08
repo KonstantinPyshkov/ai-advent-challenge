@@ -14,6 +14,7 @@ import ru.pyshkov.llm.core.report.Report;
 import ru.pyshkov.llm.core.workspace.DayWorkspace;
 import ru.pyshkov.llm.day02.Day02Experiment;
 import ru.pyshkov.llm.day03.Day03Experiment;
+import ru.pyshkov.llm.day04.Day04Experiment;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -48,6 +49,7 @@ public final class Main {
         Path dayDir = switch (day) {
             case "day2" -> Path.of("days/day_02");
             case "day3" -> Path.of("days/day_03");
+            case "day4" -> Path.of("days/day_04");
             default -> null;
         };
         if (dayDir == null) {
@@ -134,7 +136,7 @@ public final class Main {
                 Лаборатория AI Advent Challenge.
 
                 Использование:
-                  lab day2|day3 [--provider ollama|deepseek] [--model M] [--repeats N] [--dry-run] [--report-only]
+                  lab day2|day3|day4 [--provider ollama|deepseek] [--model M] [--repeats N] [--dry-run] [--report-only]
 
                 Флаги:
                   --provider P    ollama или deepseek (по умолчанию из конфига)
@@ -151,6 +153,7 @@ public final class Main {
         return switch (day) {
             case "day2" -> new Day02Experiment(dayDir, config, repeats, model);
             case "day3" -> new Day03Experiment(dayDir, config, repeats, model);
+            case "day4" -> new Day04Experiment(dayDir, config, repeats, model);
             default -> throw new IllegalStateException("Неизвестный день: " + day);
         };
     }

@@ -1,0 +1,7 @@
+task,temperature,correct,total,format,unique,similarity,avg_tokens,avg_ms
+answer-crayons,0.0,4,5,5,2/5,0.60,159,1177
+answer-crayons,0.7,5,5,5,1/5,1.00,163,1251
+answer-crayons,1.2,3,5,5,3/5,0.30,130,715
+generation-coffee,0.0,,5,5,6/25,0.91,142,613
+generation-coffee,0.7,,5,5,23/25,0.17,140,585
+generation-coffee,1.2,,5,4,24/24,0.13,137,531

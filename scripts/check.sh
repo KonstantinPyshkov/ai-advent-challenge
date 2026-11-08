@@ -20,4 +20,5 @@ fi
 ./scripts/test.sh
 ./scripts/run.sh day2 --dry-run >/dev/null
 ./scripts/run.sh day3 --dry-run >/dev/null
+./scripts/run.sh day4 --dry-run >/dev/null
 echo "CHECK_OK"

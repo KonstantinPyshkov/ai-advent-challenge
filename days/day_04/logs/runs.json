@@ -1,0 +1,1643 @@
+{
+  "experiment" : "day04",
+  "title" : "День 4. Температура",
+  "startedAt" : "2026-11-08T20:25:54.091340+03:00",
+  "model" : "qwen3.5:9b-mlx",
+  "plannedRuns" : 30,
+  "runs" : [ {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.0",
+    "repeat" : 1,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "17 * 23 - 39 = 361 - 39 = 322\n\nОТВЕТ: 322",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 33,
+        "requestMs" : 623,
+        "serverTotalMs" : 622,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 624
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : false,
+        "answer" : true
+      },
+      "errors" : [ "ответ не совпал: «322», ожидалось «352»" ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 624
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.0",
+    "repeat" : 2,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "1. Найдем общее количество карандашей до продажи:\n   $17 \\times 23 = 391$ (карандаш).\n\n2. Вычтем количество проданных карандашей из общего числа:\n   $391 - 39 = 352$ (карандаша).\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 79,
+        "requestMs" : 1319,
+        "serverTotalMs" : 1317,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1319
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1319
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.0",
+    "repeat" : 3,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "1. Найдем общее количество карандашей до продажи:\n   $17 \\times 23 = 391$ (карандаш).\n\n2. Вычтем количество проданных карандашей из общего числа:\n   $391 - 39 = 352$ (карандаша).\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 79,
+        "requestMs" : 1312,
+        "serverTotalMs" : 1311,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1313
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1313
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.0",
+    "repeat" : 4,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "1. Найдем общее количество карандашей до продажи:\n   $17 \\times 23 = 391$ (карандаш).\n\n2. Вычтем количество проданных карандашей из общего числа:\n   $391 - 39 = 352$ (карандаша).\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 79,
+        "requestMs" : 1321,
+        "serverTotalMs" : 1320,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1321
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1321
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.0",
+    "repeat" : 5,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "1. Найдем общее количество карандашей до продажи:\n   $17 \\times 23 = 391$ (карандаш).\n\n2. Вычтем количество проданных карандашей из общего числа:\n   $391 - 39 = 352$ (карандаша).\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 79,
+        "requestMs" : 1312,
+        "serverTotalMs" : 1311,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1313
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1313
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.7",
+    "repeat" : 1,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Для решения задачи сначала найдем общее количество карандашей в магазине, умножив количество коробок на число карандашей в каждой коробке:\n17 × 23 = 391 (карандаш).\n\nЗатем от общего количества вычтем проданные карандаши:\n391 - 39 = 352 (карандаша).\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 89,
+        "requestMs" : 1484,
+        "serverTotalMs" : 1482,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1484
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1484
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.7",
+    "repeat" : 2,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "1. Определим общее количество карандашей до продаж, умножив количество коробок на количество карандашей в каждой коробке: 17 * 23 = 391 карандаш.\n2. Вычтем количество проданных карандашей из общего количества: 391 - 39 = 352 карандаша.\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 83,
+        "requestMs" : 1406,
+        "serverTotalMs" : 1405,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1407
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1407
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.7",
+    "repeat" : 3,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Для решения задачи сначала найдем общее количество карандашей в магазине, умножив количество коробок на количество карандашей в каждой коробке: 17 * 23 = 391. Затем вычтем количество проданных карандашей из общего количества: 391 - 39 = 352.\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 77,
+        "requestMs" : 1292,
+        "serverTotalMs" : 1290,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1292
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1292
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.7",
+    "repeat" : 4,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "1. Найдем общее количество карандашей до продажи:\n   $17 \\times 23 = 391$ (карандаш).\n\n2. Вычтем количество проданных карандашей:\n   $391 - 39 = 352$ (карандаша).\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 76,
+        "requestMs" : 1274,
+        "serverTotalMs" : 1273,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1275
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1275
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t0.7",
+    "repeat" : 5,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "17 × 23 = 391 (карандаш всего)\n391 - 39 = 352 (карандаша осталось)\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 47,
+        "requestMs" : 800,
+        "serverTotalMs" : 799,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 801
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 801
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t1.2",
+    "repeat" : 1,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "17 × 23 = 391 карандаш было в магазинах.\n391 - 39 = 352 карандашей осталось.\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 43,
+        "requestMs" : 741,
+        "serverTotalMs" : 739,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 741
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 741
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t1.2",
+    "repeat" : 2,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Для решения задачи сначала найдем общее количество карандашей в магазине, умножив число коробок на количество карандашей в одной коробке: 17 * 23 = 391 карандаш. Затем вычтем количество проданных карандашей из общего числа: 391 - 39 = 352 карандаша осталось.\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 82,
+        "requestMs" : 1388,
+        "serverTotalMs" : 1386,
+        "loadMs" : 6,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1388
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1388
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t1.2",
+    "repeat" : 3,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "140\n\nОТВЕТ: 140",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 12,
+        "requestMs" : 231,
+        "serverTotalMs" : 230,
+        "loadMs" : 6,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 232
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : false,
+        "answer" : true
+      },
+      "errors" : [ "ответ не совпал: «140», ожидалось «352»" ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 232
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t1.2",
+    "repeat" : 4,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "(17 * 23) - 39 = 361 - 39 = 322\n\nОТВЕТ: 322",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 35,
+        "requestMs" : 605,
+        "serverTotalMs" : 604,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 606
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : false,
+        "answer" : true
+      },
+      "errors" : [ "ответ не совпал: «322», ожидалось «352»" ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 606
+  }, {
+    "caseId" : "answer-crayons",
+    "variantId" : "answer-crayons/t1.2",
+    "repeat" : 5,
+    "labels" : {
+      "task" : "answer-crayons",
+      "type" : "answer",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "В магазине 17 коробок по 23 карандаша. 39 карандашей продали. Сколько карандашей осталось?\n\nРеши задачу. В конце ответа отдельной строкой напиши:\n\nОТВЕТ: <число>"
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "(17 × 23) − 39 = 391 − 39 = 352\n\nОТВЕТ: 352",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 89,
+        "completionTokens" : 35,
+        "requestMs" : 611,
+        "serverTotalMs" : 609,
+        "loadMs" : 6,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 611
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 611
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.0",
+    "repeat" : 1,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Кофе\nУ Бесконечной Станции\nПеррон Ароматов\nГлубокий Завар\nВыйди На Улицу",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 37,
+        "requestMs" : 696,
+        "serverTotalMs" : 694,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 696
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 696
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.0",
+    "repeat" : 2,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Кофе\nУ Бесконечной Станции\nПеррон Ароматов\nГлубокий Завар\nВыйди Здесь",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 34,
+        "requestMs" : 595,
+        "serverTotalMs" : 594,
+        "loadMs" : 4,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 596
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 596
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.0",
+    "repeat" : 3,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Кофе\nУ Бесконечной Станции\nПеррон Ароматов\nГлубокий Завар\nВыйди Здесь",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 34,
+        "requestMs" : 594,
+        "serverTotalMs" : 592,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 594
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 594
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.0",
+    "repeat" : 4,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Кофе\nУ Бесконечной Станции\nПеррон Ароматов\nГлубокий Завар\nВыйди Здесь",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 34,
+        "requestMs" : 589,
+        "serverTotalMs" : 588,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 589
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 589
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.0",
+    "repeat" : 5,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.0"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Кофе\nУ Бесконечной Станции\nПеррон Ароматов\nГлубокий Завар\nВыйди Здесь",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 34,
+        "requestMs" : 592,
+        "serverTotalMs" : 590,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 592
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 592
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.7",
+    "repeat" : 1,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро и Кофе\nВыйди и Пей\nУ Метро\nБыстрый Эспрессо\nКофейный Тупик",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 31,
+        "requestMs" : 548,
+        "serverTotalMs" : 547,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 549
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 549
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.7",
+    "repeat" : 2,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Кружка\nСкорость Утреннего Воздуха\nПересадка в Аромат\nСтанция Твоего Счастья\nКофе на Платформе",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 43,
+        "requestMs" : 742,
+        "serverTotalMs" : 741,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 742
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 742
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.7",
+    "repeat" : 3,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Кофейная станция\nТранзитный аромат\nМетро-бленд\nПересадка на кофе\nУтро в пути",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 30,
+        "requestMs" : 530,
+        "serverTotalMs" : 529,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 530
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 530
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.7",
+    "repeat" : 4,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Туннельный аромат\nСтанционный бариста\nКофе у выхода\nГлубокий залп\nМетро-молочка",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 32,
+        "requestMs" : 560,
+        "serverTotalMs" : 558,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 560
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 560
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t0.7",
+    "repeat" : 5,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "0.7"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 0.7,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро и Кофе\nСтанция Ароматов\nПуть Вкусный\nПеррон Блюма\nКофейная Станция",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 31,
+        "requestMs" : 545,
+        "serverTotalMs" : 543,
+        "loadMs" : 6,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 545
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 545
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t1.2",
+    "repeat" : 1,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Павлов\nКофе на выходе\nСтанция вкуса\nГлубокая чашка\nТранс-Кава",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 31,
+        "requestMs" : 543,
+        "serverTotalMs" : 542,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 544
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 544
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t1.2",
+    "repeat" : 2,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Перехват на перроне\nВстреча у выхода\nПрямо на платформе\nМетро по пути",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 25,
+        "requestMs" : 443,
+        "serverTotalMs" : 441,
+        "loadMs" : 6,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 443
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : false,
+        "truncated" : false
+      },
+      "errors" : [ "ожидалось 5 строк, получено 4" ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 443
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t1.2",
+    "repeat" : 3,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Кофейная Станция\nВзлетка\nПересадка\nТочка Встречи\nМетро Кофе",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 28,
+        "requestMs" : 501,
+        "serverTotalMs" : 499,
+        "loadMs" : 6,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 501
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 501
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t1.2",
+    "repeat" : 4,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Метро-Эспрессо\nУ выхода из метро\nКофейня на стыке\nСтанция Ароматов\nКопченый кофе",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 33,
+        "requestMs" : 578,
+        "serverTotalMs" : 576,
+        "loadMs" : 6,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 578
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 578
+  }, {
+    "caseId" : "generation-coffee",
+    "variantId" : "generation-coffee/t1.2",
+    "repeat" : 5,
+    "labels" : {
+      "task" : "generation-coffee",
+      "type" : "generation",
+      "temperature" : "1.2"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Выполняй инструкции и формат ответа без лишних пояснений."
+        }, {
+          "role" : "user",
+          "content" : "Придумай 5 названий для кофейни рядом с метро. Каждое название — с новой строки, без нумерации и пояснений.\n\nПридумай ровно 5 названий. Каждое название — на новой строке. Без нумерации, списков, кавычек и пояснений."
+        } ],
+        "temperature" : 1.2,
+        "maxPredict" : 1024,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Подземный аромат\nТранспортная точка\nКэш перед выходом\nПоследняя станция удачи\nМетрополитен Кофе",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 107,
+        "completionTokens" : 34,
+        "requestMs" : 592,
+        "serverTotalMs" : 590,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 592
+    } ],
+    "check" : {
+      "flags" : {
+        "format" : true,
+        "truncated" : false
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 592
+  } ]
+}
