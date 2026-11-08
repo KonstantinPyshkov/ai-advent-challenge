@@ -1,0 +1,40 @@
+[
+  {
+    "id": "qwen3.5:9b-mlx",
+    "provider": "ollama",
+    "label": "9B local",
+    "resource": "~8 GB",
+    "pricing": null
+  },
+  {
+    "id": "deepseek-flash",
+    "provider": "deepseek",
+    "label": "DeepSeek V4.1 Flash",
+    "resource": "API",
+    "pricing": {
+      "inputOffPeak": 0.15,
+      "inputPeak": 0.30,
+      "outputOffPeak": 0.60,
+      "outputPeak": 1.20
+    }
+  },
+  {
+    "id": "qwen3.5:35b-a3b",
+    "provider": "ollama",
+    "label": "35B local",
+    "resource": "~20 GB",
+    "pricing": null
+  },
+  {
+    "id": "deepseek-v4-pro",
+    "provider": "deepseek",
+    "label": "DeepSeek V4 Pro",
+    "resource": "API",
+    "pricing": {
+      "inputOffPeak": 0.66,
+      "inputPeak": 1.32,
+      "outputOffPeak": 1.98,
+      "outputPeak": 3.96
+    }
+  }
+]

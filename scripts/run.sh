@@ -26,6 +26,7 @@ interactive() {
   2) День 2 — контроль формата ответа (модель 35B, без выбора модели)
   3) День 3 — способы рассуждения (4 модели на выбор)
   4) День 4 — температура (модель 9B, без выбора модели)
+  5) День 5 — версии моделей (4 модели, без выбора модели)
 
 EOF
     printf "Выберите день: "
@@ -39,6 +40,7 @@ EOF
       2|02|day2|day_02) day="day2"; break ;;
       3|03|day3|day_03) day="day3"; break ;;
       4|04|day4|day_04) day="day4"; break ;;
+      5|05|day5|day_05) day="day5"; break ;;
       *) echo "Выберите день из списка."; echo ;;
     esac
   done
@@ -62,6 +64,11 @@ EOF
   if [ "$day" = "day4" ]; then
     echo "Модель Дня 4 фиксирована: qwen3.5:9b-mlx (выбор не требуется)."
     exec "$ROOT/scripts/run.sh" day4
+  fi
+
+  if [ "$day" = "day5" ]; then
+    echo "День 5 сам прогоняет 4 модели: 9B, DeepSeek Flash, 35B, DeepSeek Pro."
+    exec "$ROOT/scripts/run.sh" day5
   fi
 
   while true; do
@@ -99,14 +106,14 @@ case "${1:-}" in
     "$MVN" -q -Dmaven.repo.local="$ROOT/.m2repo" -pl days/day_01 -am package
     exec java -jar days/day_01/target/day01.jar "$@"
     ;;
-  day2|day3|day4)
+  day2|day3|day4|day5)
     day="$1"
     shift
     "$MVN" -q -Dmaven.repo.local="$ROOT/.m2repo" -pl cli -am package
     exec java -jar cli/target/lab.jar "$day" "$@"
     ;;
   *)
-    echo "Использование: ./scripts/run.sh (интерактивно) | ./scripts/run.sh day1 \"вопрос\" | ./scripts/run.sh day2|day3|day4 [--provider P] [--model M] [--dry-run]" >&2
+    echo "Использование: ./scripts/run.sh (интерактивно) | ./scripts/run.sh day1 \"вопрос\" | ./scripts/run.sh day2|day3|day4|day5 [--provider P] [--model M] [--dry-run]" >&2
     exit 2
     ;;
 esac

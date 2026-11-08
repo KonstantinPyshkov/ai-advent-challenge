@@ -12,6 +12,7 @@ import ru.pyshkov.llm.core.workspace.DayWorkspace;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -94,10 +95,15 @@ public final class Runner {
         if (plans.isEmpty()) {
             throw new IOException("План эксперимента пуст");
         }
-        ChatRequest firstRequest = plans.get(0).steps().get(0).request(List.of());
-        System.out.println("Модель: " + firstRequest.model());
-        System.out.println("Прогрев модели...");
-        warmupModel(firstRequest.model(), firstRequest.numCtx());
+        var warmed = new LinkedHashSet<String>();
+        for (RunPlan plan : plans) {
+            ChatRequest request = plan.steps().get(0).request(List.of());
+            if (warmed.add(request.model())) {
+                System.out.println("Модель: " + request.model());
+                System.out.println("Прогрев модели...");
+                warmupModel(request.model(), request.numCtx());
+            }
+        }
     }
 
     private void warmupModel(String modelName, int numCtx) throws IOException, InterruptedException {

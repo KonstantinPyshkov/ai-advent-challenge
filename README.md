@@ -67,6 +67,7 @@ scripts/     скрипты сборки и запуска
 | `qwen3.5:9b-mlx` | Эксперименты с приоритетом скорости |
 | `qwen3.5:35b-a3b` | Задачи, требующие более высокой точности |
 | `DeepSeek-V4.1-Flash` (`deepseek-flash`) | День 3, два режима мышления через DeepSeek API |
+| `DeepSeek-V4-Pro` (`deepseek-v4-pro`) | День 5, платный флагман |
 
 ## Запуск
 
@@ -79,8 +80,8 @@ mvn package
 Самопроверки без внешних тестовых зависимостей:
 
 ```bash
-./scripts/test.sh   # Runner, Failures, Markdown, Day02, Day03, Day04
-./scripts/check.sh  # build + self-tests + dry-run Day02–Day04
+./scripts/test.sh   # Runner, Failures, Markdown, Day02–Day05
+./scripts/check.sh  # build + self-tests + dry-run Day02–Day05
 ```
 
 Интерактивный запуск — одна команда (macOS/Linux):
@@ -99,6 +100,7 @@ mvn package
 ./scripts/run.sh day2
 ./scripts/run.sh day3
 ./scripts/run.sh day4
+./scripts/run.sh day5
 ```
 
 Для DeepSeek ключ берётся из `DEEPSEEK_API_KEY` или macOS Keychain
@@ -111,7 +113,7 @@ mvn package
 
 ```text
 core/                общий клиент, runner, проверки, отчёты
-cli/                 интерактивный лаунчер и lab day2|day3|day4
+cli/                 интерактивный лаунчер и lab day2|day3|day4|day5
 days/
   day_01/            минимальный запрос к Ollama
     config/          настройки дня
@@ -123,7 +125,7 @@ days/
   day_02/            контроль формата ответа
     config/          настройки эксперимента
     data/            вопрос, схема, эталон
-    docs/            ТЗ, дизайн, запуск, результат, видео
+    docs/            ТЗ, дизайн, запуск, результат
     prompts/         системный промпт, вопрос, формат
     src/             код эксперимента
     logs/            журнал 18 прогонов
@@ -150,13 +152,23 @@ days/
     reports/         Markdown и CSV
     conclusions/     факты и вывод
     pom.xml
+  day_05/            версии моделей
+    config/          настройки эксперимента
+    data/            7 задач и 4 модели
+    docs/            ТЗ, дизайн, запуск, результат
+    prompts/         системный промпт и формат ответа
+    src/             код эксперимента
+    logs/            журнал 28 прогонов
+    reports/         Markdown и CSV
+    conclusions/     факты и вывод
+    pom.xml
 docs/
   architecture.md    устройство проекта
   decisions.md       зафиксированные решения
 scripts/
   run.sh             интерактивный запуск и сборка
   run.cmd            запуск в Windows
-  test.sh            самопроверки core, Дней 2–4
+  test.sh            самопроверки core, Дней 2–5
   check.sh           полная проверка перед новым днём
 ```
 
@@ -185,5 +197,6 @@ scripts/
 - [День 2](days/day_02/README.md)
 - [День 3](days/day_03/README.md)
 - [День 4](days/day_04/README.md)
+- [День 5](days/day_05/README.md)
 
 Описания последующих дней будут добавлены по мере их реализации.

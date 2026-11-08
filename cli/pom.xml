@@ -35,6 +35,11 @@
             <artifactId>day04</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ru.pyshkov</groupId>
+            <artifactId>day05</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

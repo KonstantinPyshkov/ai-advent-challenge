@@ -1,0 +1,5 @@
+model,provider,label,correct,total,format,seconds,tokens_prompt,tokens_completion,cost_off_peak_usd,cost_peak_usd,cost_off_peak_rub,cost_peak_rub,resource
+qwen3.5:9b-mlx,ollama,9B local,5,7,7,12.408,604,587,,,,,~8 GB
+deepseek-flash,deepseek,DeepSeek V4.1 Flash,7,7,7,8.373,547,345,0.00028905,0.00057810,0.02374257,0.04748513,API
+qwen3.5:35b-a3b,ollama,35B local,6,7,7,23.392,604,834,,,,,~20 GB
+deepseek-v4-pro,deepseek,DeepSeek V4 Pro,7,7,7,12.252,540,365,0.00107910,0.00215820,0.08863727,0.17727455,API

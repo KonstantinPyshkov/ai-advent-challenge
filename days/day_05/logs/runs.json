@@ -1,0 +1,1604 @@
+{
+  "experiment" : "day05",
+  "title" : "День 5. Версии моделей",
+  "startedAt" : "2026-11-08T21:01:04.551818+03:00",
+  "model" : "qwen3.5:9b-mlx",
+  "plannedRuns" : 28,
+  "runs" : [ {
+    "caseId" : "arith-mult",
+    "variantId" : "qwen3.5:9b-mlx",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "arith-mult",
+      "provider" : "ollama",
+      "model" : "qwen3.5:9b-mlx",
+      "model_label" : "9B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько будет 17 × 23? Ответь числом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "391\n\nОТВЕТ: 391",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 82,
+        "completionTokens" : 12,
+        "requestMs" : 1456,
+        "serverTotalMs" : 1454,
+        "loadMs" : 1142,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1457
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1457
+  }, {
+    "caseId" : "logic-cats",
+    "variantId" : "qwen3.5:9b-mlx",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "logic-cats",
+      "provider" : "ollama",
+      "model" : "qwen3.5:9b-mlx",
+      "model_label" : "9B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Все коты — животные. Некоторые животные пушистые. Обязательно ли некоторые коты пушистые? Ответь «да» или «нет».\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Нет\nОТВЕТ: нет",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 95,
+        "completionTokens" : 7,
+        "requestMs" : 213,
+        "serverTotalMs" : 211,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 213
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 213
+  }, {
+    "caseId" : "algo-sum",
+    "variantId" : "qwen3.5:9b-mlx",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "algo-sum",
+      "provider" : "ollama",
+      "model" : "qwen3.5:9b-mlx",
+      "model_label" : "9B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Чему равна сумма чисел от 1 до 4 включительно?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Сумма чисел от 1 до 4 равна 1 + 2 + 3 + 4 = 10.\n\nОТВЕТ: 10",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 81,
+        "completionTokens" : 37,
+        "requestMs" : 745,
+        "serverTotalMs" : 743,
+        "loadMs" : 4,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 745
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 745
+  }, {
+    "caseId" : "date-2030",
+    "variantId" : "qwen3.5:9b-mlx",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "date-2030",
+      "provider" : "ollama",
+      "model" : "qwen3.5:9b-mlx",
+      "model_label" : "9B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Какой день недели будет 1 января 2030 года? Ответь одним словом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Понедельник\n\nОТВЕТ: Понедельник",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 85,
+        "completionTokens" : 15,
+        "requestMs" : 378,
+        "serverTotalMs" : 376,
+        "loadMs" : 7,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 378
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : false,
+        "answer" : true
+      },
+      "errors" : [ "ответ не совпал: «Понедельник», ожидалось «вторник»" ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 378
+  }, {
+    "caseId" : "data-avg",
+    "variantId" : "qwen3.5:9b-mlx",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "data-avg",
+      "provider" : "ollama",
+      "model" : "qwen3.5:9b-mlx",
+      "model_label" : "9B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Найди среднее арифметическое чисел 120, 80 и 100.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "(120 + 80 + 100) / 3 = 300 / 3 = 100\n\nОТВЕТ: 100",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 91,
+        "completionTokens" : 39,
+        "requestMs" : 824,
+        "serverTotalMs" : 823,
+        "loadMs" : 5,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 825
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 825
+  }, {
+    "caseId" : "div7",
+    "variantId" : "qwen3.5:9b-mlx",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "div7",
+      "provider" : "ollama",
+      "model" : "qwen3.5:9b-mlx",
+      "model_label" : "9B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел, которые делятся на 7?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Минимальное трёхзначное число, делящееся на 7: $105 = 7 \\times 15$.\nМаксимальное трёхзначное число, делящееся на 7: $987 = 7 \\times 141$.\nКоличество таких чисел равно количеству целых чисел от 15 до 141 включительно:\n$141 - 15 + 1 = 127$.\n\nОТВЕТ: 127",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 83,
+        "completionTokens" : 113,
+        "requestMs" : 2127,
+        "serverTotalMs" : 2125,
+        "loadMs" : 8,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 2127
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : false,
+        "answer" : true
+      },
+      "errors" : [ "ответ не совпал: «127», ожидалось «128»" ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 2127
+  }, {
+    "caseId" : "digit5",
+    "variantId" : "qwen3.5:9b-mlx",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "digit5",
+      "provider" : "ollama",
+      "model" : "qwen3.5:9b-mlx",
+      "model_label" : "9B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:9b-mlx",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел с различными цифрами, которые делятся на 5?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:9b-mlx",
+        "content" : "Для того чтобы число делилось на 5, его последняя цифра должна быть либо 0, либо 5. Рассмотрим два случая для трёхзначного числа (первая цифра не может быть 0):\n\n1.  **Последняя цифра — 0**:\n    *   Первая цифра: может быть любой из {1, 2, 3, 4, 5, 6, 7, 8, 9} — **9** вариантов.\n    *   Вторая цифра: может быть любой из оставшихся 8 цифр (исключая первую и ноль) — **8** вариантов.\n    *   Третья цифра: фиксирована как 0 — **1** вариант.\n    *   Итого в этом случае: $9 \\times 8 \\times 1 = 72$.\n\n2.  **Последняя цифра — 5**:\n    *   Первая цифра: может быть любой из {1, 2, 3, 4, 6, 7, 8, 9} (не 0 и не 5) — **8** вариантов.\n    *   Вторая цифра: может быть любой из оставшихся 8 цифр (исключая первую и пятёрку) — **8** вариантов.\n    *   Третья цифра: фиксирована как 5 — **1** вариант.\n    *   Итого в этом случае: $8 \\times 8 \\times 1 = 64$.\n\nОбщее количество чисел: $72 + 64 = 136$.\n\nОТВЕТ: 136",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 87,
+        "completionTokens" : 364,
+        "requestMs" : 6665,
+        "serverTotalMs" : 6663,
+        "loadMs" : 5,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 6665
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 6665
+  }, {
+    "caseId" : "arith-mult",
+    "variantId" : "deepseek-flash",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "arith-mult",
+      "provider" : "deepseek",
+      "model" : "deepseek-flash",
+      "model_label" : "DeepSeek V4.1 Flash"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-flash",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько будет 17 × 23? Ответь числом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-flash",
+        "content" : "391\n\nОТВЕТ: 391",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 72,
+        "completionTokens" : 9,
+        "requestMs" : 1736,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1736
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1736
+  }, {
+    "caseId" : "logic-cats",
+    "variantId" : "deepseek-flash",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "logic-cats",
+      "provider" : "deepseek",
+      "model" : "deepseek-flash",
+      "model_label" : "DeepSeek V4.1 Flash"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-flash",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Все коты — животные. Некоторые животные пушистые. Обязательно ли некоторые коты пушистые? Ответь «да» или «нет».\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-flash",
+        "content" : "нет\n\nОТВЕТ: нет",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 94,
+        "completionTokens" : 8,
+        "requestMs" : 915,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 915
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 915
+  }, {
+    "caseId" : "algo-sum",
+    "variantId" : "deepseek-flash",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "algo-sum",
+      "provider" : "deepseek",
+      "model" : "deepseek-flash",
+      "model_label" : "DeepSeek V4.1 Flash"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-flash",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Чему равна сумма чисел от 1 до 4 включительно?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-flash",
+        "content" : "1 + 2 + 3 + 4 = 10\n\nОТВЕТ: 10",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 71,
+        "completionTokens" : 21,
+        "requestMs" : 1123,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1123
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1123
+  }, {
+    "caseId" : "date-2030",
+    "variantId" : "deepseek-flash",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "date-2030",
+      "provider" : "deepseek",
+      "model" : "deepseek-flash",
+      "model_label" : "DeepSeek V4.1 Flash"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-flash",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Какой день недели будет 1 января 2030 года? Ответь одним словом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-flash",
+        "content" : "Вторник\n\nОТВЕТ: Вторник",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 77,
+        "completionTokens" : 12,
+        "requestMs" : 816,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 817
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 817
+  }, {
+    "caseId" : "data-avg",
+    "variantId" : "deepseek-flash",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "data-avg",
+      "provider" : "deepseek",
+      "model" : "deepseek-flash",
+      "model_label" : "DeepSeek V4.1 Flash"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-flash",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Найди среднее арифметическое чисел 120, 80 и 100.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-flash",
+        "content" : "Среднее арифметическое: (120 + 80 + 100) / 3 = 300 / 3 = 100.\n\nОТВЕТ: 100",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 76,
+        "completionTokens" : 37,
+        "requestMs" : 1021,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1021
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1021
+  }, {
+    "caseId" : "div7",
+    "variantId" : "deepseek-flash",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "div7",
+      "provider" : "deepseek",
+      "model" : "deepseek-flash",
+      "model_label" : "DeepSeek V4.1 Flash"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-flash",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел, которые делятся на 7?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-flash",
+        "content" : "Трёхзначные числа от 100 до 999.  \nПервое кратное 7: \\(105 = 7 \\cdot 15\\).  \nПоследнее кратное 7: \\(994 = 7 \\cdot 142\\).  \nКоличество: \\(142 - 15 + 1 = 128\\).\n\nОТВЕТ: 128",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 76,
+        "completionTokens" : 74,
+        "requestMs" : 1227,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1227
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1227
+  }, {
+    "caseId" : "digit5",
+    "variantId" : "deepseek-flash",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "digit5",
+      "provider" : "deepseek",
+      "model" : "deepseek-flash",
+      "model_label" : "DeepSeek V4.1 Flash"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-flash",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел с различными цифрами, которые делятся на 5?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-flash",
+        "content" : "Трёхзначное число делится на 5, если его последняя цифра 0 или 5.  \nЦифры должны быть различными.\n\n**Случай 1: последняя цифра 0.**  \nПервая цифра — от 1 до 9 (9 вариантов).  \nВторая — любая, кроме 0 и первой (8 вариантов).  \nИтого: \\(9 \\cdot 8 = 72\\).\n\n**Случай 2: последняя цифра 5.**  \nПервая цифра — от 1 до 9, кроме 5 (8 вариантов).  \nВторая — любая, кроме 5 и первой (8 вариантов).  \nИтого: \\(8 \\cdot 8 = 64\\).\n\nВсего: \\(72 + 64 = 136\\).\n\nОТВЕТ: 136",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 81,
+        "completionTokens" : 184,
+        "requestMs" : 1535,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1535
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1535
+  }, {
+    "caseId" : "arith-mult",
+    "variantId" : "qwen3.5:35b-a3b",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "arith-mult",
+      "provider" : "ollama",
+      "model" : "qwen3.5:35b-a3b",
+      "model_label" : "35B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:35b-a3b",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько будет 17 × 23? Ответь числом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:35b-a3b",
+        "content" : "391\nОТВЕТ: 391",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 82,
+        "completionTokens" : 12,
+        "requestMs" : 13974,
+        "serverTotalMs" : 13971,
+        "loadMs" : 10577,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 13974
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 13974
+  }, {
+    "caseId" : "logic-cats",
+    "variantId" : "qwen3.5:35b-a3b",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "logic-cats",
+      "provider" : "ollama",
+      "model" : "qwen3.5:35b-a3b",
+      "model_label" : "35B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:35b-a3b",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Все коты — животные. Некоторые животные пушистые. Обязательно ли некоторые коты пушистые? Ответь «да» или «нет».\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:35b-a3b",
+        "content" : "Нет\n\nОТВЕТ: нет",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 95,
+        "completionTokens" : 7,
+        "requestMs" : 216,
+        "serverTotalMs" : 212,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 217
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 217
+  }, {
+    "caseId" : "algo-sum",
+    "variantId" : "qwen3.5:35b-a3b",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "algo-sum",
+      "provider" : "ollama",
+      "model" : "qwen3.5:35b-a3b",
+      "model_label" : "35B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:35b-a3b",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Чему равна сумма чисел от 1 до 4 включительно?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:35b-a3b",
+        "content" : "Сумма чисел от 1 до 4: 1 + 2 + 3 + 4 = 10.\n\nОТВЕТ: 10",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 81,
+        "completionTokens" : 36,
+        "requestMs" : 464,
+        "serverTotalMs" : 463,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 465
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 465
+  }, {
+    "caseId" : "date-2030",
+    "variantId" : "qwen3.5:35b-a3b",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "date-2030",
+      "provider" : "ollama",
+      "model" : "qwen3.5:35b-a3b",
+      "model_label" : "35B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:35b-a3b",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Какой день недели будет 1 января 2030 года? Ответь одним словом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:35b-a3b",
+        "content" : "Понедельник\nОТВЕТ: Понедельник",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 85,
+        "completionTokens" : 15,
+        "requestMs" : 252,
+        "serverTotalMs" : 250,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 252
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : false,
+        "answer" : true
+      },
+      "errors" : [ "ответ не совпал: «Понедельник», ожидалось «вторник»" ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 252
+  }, {
+    "caseId" : "data-avg",
+    "variantId" : "qwen3.5:35b-a3b",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "data-avg",
+      "provider" : "ollama",
+      "model" : "qwen3.5:35b-a3b",
+      "model_label" : "35B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:35b-a3b",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Найди среднее арифметическое чисел 120, 80 и 100.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:35b-a3b",
+        "content" : "Среднее арифметическое равно (120 + 80 + 100) / 3 = 300 / 3 = 100.\n\nОТВЕТ: 100",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 91,
+        "completionTokens" : 49,
+        "requestMs" : 608,
+        "serverTotalMs" : 606,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 609
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 609
+  }, {
+    "caseId" : "div7",
+    "variantId" : "qwen3.5:35b-a3b",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "div7",
+      "provider" : "ollama",
+      "model" : "qwen3.5:35b-a3b",
+      "model_label" : "35B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:35b-a3b",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел, которые делятся на 7?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:35b-a3b",
+        "content" : "Найдем количество трехзначных чисел от 100 до 999, делящихся на 7.\n\n1. Найдем наименьшее трехзначное число, делящееся на 7:\n   $100 \\div 7 = 14$ (остаток 2).\n   Следующее целое кратное: $(14 + 1) \\times 7 = 15 \\times 7 = 105$.\n\n2. Найдем наибольшее трехзначное число, делящееся на 7:\n   $999 \\div 7 = 142$ (остаток 5).\n   Предыдущее целое кратное: $142 \\times 7 = 994$.\n\n3. Количество чисел в арифметической прогрессии от 105 до 994 с шагом 7:\n   Формула: $n = \\frac{a_n - a_1}{d} + 1$, где $a_1 = 105$, $a_n = 994$, $d = 7$.\n   $n = \\frac{994 - 105}{7} + 1 = \\frac{889}{7} + 1 = 127 + 1 = 128$.\n\nОТВЕТ: 128",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 83,
+        "completionTokens" : 314,
+        "requestMs" : 3499,
+        "serverTotalMs" : 3494,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 3499
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 3499
+  }, {
+    "caseId" : "digit5",
+    "variantId" : "qwen3.5:35b-a3b",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "digit5",
+      "provider" : "ollama",
+      "model" : "qwen3.5:35b-a3b",
+      "model_label" : "35B local"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "qwen3.5:35b-a3b",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел с различными цифрами, которые делятся на 5?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "qwen3.5:35b-a3b",
+        "content" : "Для решения задачи разобьём трёхзначные числа на две группы в зависимости от последней цифры (так как число должно делиться на 5, последняя цифра может быть только 0 или 5). Трёхзначное число не может начинаться с нуля.\n\n**Случай 1: Последняя цифра равна 0.**\nЧисло имеет вид $AB0$.\n- Цифра $A$ (сотни) может быть любой от 1 до 9 (9 вариантов).\n- Цифра $B$ (десятки) может быть любой от 0 до 9, кроме уже выбранной цифры $A$ и цифры 0 (так как все цифры должны быть различными). Всего доступных цифр для $B$: 10 всего - 2 занятые ($A$ и $0$) = 8 вариантов.\n- Количество чисел: $9 \\times 8 = 72$.\n\n**Случай 2: Последняя цифра равна 5.**\nЧисло имеет вид $AB5$.\n- Цифра $A$ (сотни) может быть любой от 1 до 9, кроме цифры 5. Всего доступных вариантов: 8 (цифры 1, 2, 3, 4, 6, 7, 8, 9).\n- Цифра $B$ (десятки) может быть любой от 0 до 9, кроме уже выбранных цифр $A$ и 5. Всего доступных вариантов: 10 всего - 2 занятые ($A$ и $5$) = 8 вариантов.\n- Количество чисел: $8 \\times 8 = 64$.\n\n**Общее количество:**\nСложим результаты обоих случаев: $72 + 64 = 136$.\n\nОТВЕТ: 136",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 87,
+        "completionTokens" : 401,
+        "requestMs" : 4379,
+        "serverTotalMs" : 4370,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 4379
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 4379
+  }, {
+    "caseId" : "arith-mult",
+    "variantId" : "deepseek-v4-pro",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "arith-mult",
+      "provider" : "deepseek",
+      "model" : "deepseek-v4-pro",
+      "model_label" : "DeepSeek V4 Pro"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-v4-pro",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько будет 17 × 23? Ответь числом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-v4-pro",
+        "content" : "391\n\nОТВЕТ: 391",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 71,
+        "completionTokens" : 9,
+        "requestMs" : 2686,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 2686
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 2686
+  }, {
+    "caseId" : "logic-cats",
+    "variantId" : "deepseek-v4-pro",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "logic-cats",
+      "provider" : "deepseek",
+      "model" : "deepseek-v4-pro",
+      "model_label" : "DeepSeek V4 Pro"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-v4-pro",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Все коты — животные. Некоторые животные пушистые. Обязательно ли некоторые коты пушистые? Ответь «да» или «нет».\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-v4-pro",
+        "content" : "Нет.\n\nОТВЕТ: нет",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 93,
+        "completionTokens" : 9,
+        "requestMs" : 1225,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1226
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1226
+  }, {
+    "caseId" : "algo-sum",
+    "variantId" : "deepseek-v4-pro",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "algo-sum",
+      "provider" : "deepseek",
+      "model" : "deepseek-v4-pro",
+      "model_label" : "DeepSeek V4 Pro"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-v4-pro",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Чему равна сумма чисел от 1 до 4 включительно?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-v4-pro",
+        "content" : "Сумма: 1 + 2 + 3 + 4 = 10\n\nОТВЕТ: 10",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 70,
+        "completionTokens" : 26,
+        "requestMs" : 1328,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1328
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1328
+  }, {
+    "caseId" : "date-2030",
+    "variantId" : "deepseek-v4-pro",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "date-2030",
+      "provider" : "deepseek",
+      "model" : "deepseek-v4-pro",
+      "model_label" : "DeepSeek V4 Pro"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-v4-pro",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Какой день недели будет 1 января 2030 года? Ответь одним словом.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-v4-pro",
+        "content" : "Вторник\n\nОТВЕТ: Вторник",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 76,
+        "completionTokens" : 12,
+        "requestMs" : 1123,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1124
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1124
+  }, {
+    "caseId" : "data-avg",
+    "variantId" : "deepseek-v4-pro",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "data-avg",
+      "provider" : "deepseek",
+      "model" : "deepseek-v4-pro",
+      "model_label" : "DeepSeek V4 Pro"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-v4-pro",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Найди среднее арифметическое чисел 120, 80 и 100.\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-v4-pro",
+        "content" : "Среднее арифметическое = (120 + 80 + 100) / 3 = 300 / 3 = 100\n\nОТВЕТ: 100",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 75,
+        "completionTokens" : 37,
+        "requestMs" : 1429,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1430
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1430
+  }, {
+    "caseId" : "div7",
+    "variantId" : "deepseek-v4-pro",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "div7",
+      "provider" : "deepseek",
+      "model" : "deepseek-v4-pro",
+      "model_label" : "DeepSeek V4 Pro"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-v4-pro",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел, которые делятся на 7?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-v4-pro",
+        "content" : "Наименьшее трёхзначное число, делящееся на 7, — это 105 (7 × 15).  \nНаибольшее трёхзначное число, делящееся на 7, — это 994 (7 × 142).  \n\nКоличество таких чисел:  \n142 − 15 + 1 = 128.\n\nОТВЕТ: 128",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 75,
+        "completionTokens" : 84,
+        "requestMs" : 1733,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 1734
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 1734
+  }, {
+    "caseId" : "digit5",
+    "variantId" : "deepseek-v4-pro",
+    "repeat" : 1,
+    "labels" : {
+      "temperature" : "0.0",
+      "task" : "digit5",
+      "provider" : "deepseek",
+      "model" : "deepseek-v4-pro",
+      "model_label" : "DeepSeek V4 Pro"
+    },
+    "steps" : [ {
+      "label" : "answer",
+      "request" : {
+        "model" : "deepseek-v4-pro",
+        "messages" : [ {
+          "role" : "system",
+          "content" : "Ты — точный ассистент. Реши задачу и не добавляй лишних пояснений, если они не нужны."
+        }, {
+          "role" : "user",
+          "content" : "Сколько существует трёхзначных чисел с различными цифрами, которые делятся на 5?\n\nВ конце ответа отдельной строкой напиши:\n\nОТВЕТ: <краткий ответ>"
+        } ],
+        "temperature" : 0.0,
+        "maxPredict" : 2048,
+        "stop" : [ ],
+        "jsonMode" : false,
+        "schema" : null,
+        "think" : false,
+        "numCtx" : 8192,
+        "emulateStop" : false
+      },
+      "response" : {
+        "model" : "deepseek-v4-pro",
+        "content" : "Трёхзначное число, делящееся на 5, оканчивается на 0 или 5.\n\nСлучай 1: последняя цифра 0.  \nПервая цифра — от 1 до 9 (9 вариантов), вторая — любая из оставшихся 8 цифр (не равная первой и не 0).  \nИтого: \\(9 \\times 8 = 72\\).\n\nСлучай 2: последняя цифра 5.  \nПервая цифра — от 1 до 9, кроме 5 (8 вариантов), вторая — любая из оставшихся 8 цифр (не равная первой и не 5).  \nИтого: \\(8 \\times 8 = 64\\).\n\nВсего: \\(72 + 64 = 136\\).\n\nОТВЕТ: 136",
+        "thinking" : null,
+        "doneReason" : "stop",
+        "promptTokens" : 80,
+        "completionTokens" : 188,
+        "requestMs" : 2728,
+        "serverTotalMs" : 0,
+        "loadMs" : 0,
+        "stopEmulated" : false
+      },
+      "error" : null,
+      "wallClockMs" : 2729
+    } ],
+    "check" : {
+      "flags" : {
+        "truncated" : false,
+        "correct" : true,
+        "answer" : true
+      },
+      "errors" : [ ]
+    },
+    "success" : true,
+    "error" : null,
+    "wallClockMs" : 2729
+  } ]
+}

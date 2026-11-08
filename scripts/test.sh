@@ -16,7 +16,7 @@ if [ -z "$MVN" ]; then
   fi
 fi
 
-"$MVN" -q -Dmaven.repo.local="$ROOT/.m2repo" -pl core,days/day_02,days/day_03,days/day_04 -am test-compile
+"$MVN" -q -Dmaven.repo.local="$ROOT/.m2repo" -pl core,days/day_02,days/day_03,days/day_04,days/day_05 -am test-compile
 JACKSON_CP="$(find "$ROOT/.m2repo/com/fasterxml/jackson" -name '*.jar' | paste -sd: -)"
 CORE_CP="core/target/classes:core/target/test-classes:$JACKSON_CP"
 java -cp "$CORE_CP" \
@@ -31,4 +31,6 @@ java -cp "core/target/classes:days/day_03/target/classes:days/day_03/target/test
   ru.pyshkov.llm.day03.Day03CheckerSelfTest
 java -cp "core/target/classes:days/day_04/target/classes:days/day_04/target/test-classes:$JACKSON_CP" \
   ru.pyshkov.llm.day04.Day04CheckerSelfTest
+java -cp "core/target/classes:days/day_05/target/classes:days/day_05/target/test-classes:$JACKSON_CP" \
+  ru.pyshkov.llm.day05.Day05CheckerSelfTest
 echo "ALL_SELF_TESTS_OK"

@@ -75,4 +75,3 @@ conclusions/conclusion.md   вывод по правилам, без участ�
 - [Дизайн эксперимента](docs/02-design.md)
 - [Порядок запуска](docs/03-run.md)
 - [Результат](docs/04-result.md)
-- [Сценарий видео](docs/05-video.md)

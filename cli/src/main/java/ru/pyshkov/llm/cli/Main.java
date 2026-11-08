@@ -3,6 +3,7 @@ package ru.pyshkov.llm.cli;
 import ru.pyshkov.llm.core.client.ChatModel;
 import ru.pyshkov.llm.core.client.DeepSeekClient;
 import ru.pyshkov.llm.core.client.OllamaClient;
+import ru.pyshkov.llm.core.client.RoutingChatModel;
 import ru.pyshkov.llm.core.config.LabConfig;
 import ru.pyshkov.llm.core.experiment.Experiment;
 import ru.pyshkov.llm.core.experiment.RunPlan;
@@ -15,12 +16,16 @@ import ru.pyshkov.llm.core.workspace.DayWorkspace;
 import ru.pyshkov.llm.day02.Day02Experiment;
 import ru.pyshkov.llm.day03.Day03Experiment;
 import ru.pyshkov.llm.day04.Day04Experiment;
+import ru.pyshkov.llm.day05.Day05Experiment;
+import ru.pyshkov.llm.day05.Day05Model;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.time.Duration;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -50,6 +55,7 @@ public final class Main {
             case "day2" -> Path.of("days/day_02");
             case "day3" -> Path.of("days/day_03");
             case "day4" -> Path.of("days/day_04");
+            case "day5" -> Path.of("days/day_05");
             default -> null;
         };
         if (dayDir == null) {
@@ -91,7 +97,7 @@ public final class Main {
                     + workspace.conclusions().resolve("conclusion.md").toAbsolutePath());
             return;
         }
-        ChatModel client = createModel(config, options.provider());
+        ChatModel client = createModel(config, options.provider(), experiment);
         Runner runner = new Runner(client, config, workspace);
         runner.warmup(plans);
 
@@ -121,7 +127,13 @@ public final class Main {
     private static void printPlan(Experiment experiment, List<RunPlan> plans, Options options) {
         System.out.println("Эксперимент: " + experiment.title());
         System.out.println("Провайдер: " + options.provider());
-        System.out.println("Модель: " + options.model());
+        if (experiment instanceof Day05Experiment day05) {
+            System.out.println("Модели:");
+            day05.models().forEach(model -> System.out.println(
+                    "  - " + model.label() + " (" + model.id() + ")"));
+        } else {
+            System.out.println("Модель: " + options.model());
+        }
         System.out.println("Повторов на вариант: " + options.repeats());
         System.out.println("Всего прогонов: " + plans.size());
         System.out.println("Варианты:");
@@ -136,7 +148,7 @@ public final class Main {
                 Лаборатория AI Advent Challenge.
 
                 Использование:
-                  lab day2|day3|day4 [--provider ollama|deepseek] [--model M] [--repeats N] [--dry-run] [--report-only]
+                  lab day2|day3|day4|day5 [--provider ollama|deepseek] [--model M] [--repeats N] [--dry-run] [--report-only]
 
                 Флаги:
                   --provider P    ollama или deepseek (по умолчанию из конфига)
@@ -154,11 +166,16 @@ public final class Main {
             case "day2" -> new Day02Experiment(dayDir, config, repeats, model);
             case "day3" -> new Day03Experiment(dayDir, config, repeats, model);
             case "day4" -> new Day04Experiment(dayDir, config, repeats, model);
+            case "day5" -> new Day05Experiment(dayDir, config, repeats, model);
             default -> throw new IllegalStateException("Неизвестный день: " + day);
         };
     }
 
-    private static ChatModel createModel(LabConfig config, String provider) {
+    private static ChatModel createModel(
+            LabConfig config, String provider, Experiment experiment) {
+        if (experiment instanceof Day05Experiment day05) {
+            return createMultiModel(config, day05.models());
+        }
         String baseUrl = provider.equals(config.provider())
                 ? config.baseUrl()
                 : defaultBaseUrl(provider);
@@ -170,6 +187,25 @@ public final class Main {
             default -> throw new IllegalStateException(
                     "Неизвестный провайдер: " + provider);
         };
+    }
+
+    private static ChatModel createMultiModel(LabConfig config, List<Day05Model> models) {
+        Map<String, ChatModel> clients = new LinkedHashMap<>();
+        for (Day05Model model : models) {
+            String baseUrl = model.provider().equals(config.provider())
+                    ? config.baseUrl()
+                    : defaultBaseUrl(model.provider());
+            ChatModel client = switch (model.provider()) {
+                case "ollama" -> new OllamaClient(
+                        baseUrl, Duration.ofSeconds(config.timeoutSeconds()));
+                case "deepseek" -> new DeepSeekClient(
+                        baseUrl, apiKey(config), Duration.ofSeconds(config.timeoutSeconds()));
+                default -> throw new IllegalStateException(
+                        "Неизвестный провайдер модели: " + model.provider());
+            };
+            clients.put(model.id(), client);
+        }
+        return new RoutingChatModel(clients);
     }
 
     private static String defaultBaseUrl(String provider) {
