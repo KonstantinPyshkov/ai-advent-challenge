@@ -141,8 +141,7 @@ public final class Day03Experiment implements Experiment {
                 row.add(strategy);
                 row.add(reasoning);
                 for (Day03Task task : tasks) {
-                    RunResult result = find(results, variant(strategy, reasoning), task.id(), 1);
-                    row.add(result == null ? "—" : symbol(result));
+                    row.add(cell(results, variant(strategy, reasoning), task.id()));
                 }
                 matrix.add(row);
             }
@@ -168,7 +167,8 @@ public final class Day03Experiment implements Experiment {
         md.append(Markdown.table(headers, summary));
 
         md.append("\n## По задачам\n\n");
-        md.append("✅ — верно; ❌ — ответ неверный; ⚠️ — нет маркера ОТВЕТ; ")
+        md.append("✅ — все повторы верны; ◐ — часть повторов верна; ")
+                .append("❌ — ответ неверный; ⚠️ — нет маркера ОТВЕТ; ")
                 .append("💥 — ошибка выполнения.\n\n");
         md.append(Markdown.table(matrixHeaders, matrix));
 
@@ -382,8 +382,7 @@ public final class Day03Experiment implements Experiment {
             for (String reasoning : REASONING) {
                 StringBuilder row = new StringBuilder();
                 for (Day03Task task : tasks) {
-                    RunResult result = find(results, variant(strategy, reasoning), task.id(), 1);
-                    row.append(' ').append(result == null ? "—" : symbol(result));
+                    row.append(' ').append(cell(results, variant(strategy, reasoning), task.id()));
                 }
                 out.append(String.format("%-18s %10s %s%n", strategy, reasoning, row));
             }
@@ -581,26 +580,27 @@ public final class Day03Experiment implements Experiment {
                 .sum();
     }
 
-    private static String symbol(RunResult result) {
-        if (!result.success()) {
+    private static String cell(List<RunResult> results, String variant, String task) {
+        List<RunResult> list = results.stream()
+                .filter(r -> r.variantId().equals(variant) && r.caseId().equals(task))
+                .toList();
+        if (list.isEmpty()) {
+            return "—";
+        }
+        if (list.stream().anyMatch(r -> !r.success())) {
             return "💥";
         }
-        if (result.check().flag("correct")) {
+        long correct = list.stream().filter(r -> r.check().flag("correct")).count();
+        if (correct == list.size()) {
             return "✅";
         }
-        if (result.check().flag("answer")) {
+        if (correct > 0) {
+            return "◐";
+        }
+        if (list.stream().allMatch(r -> r.check().flag("answer"))) {
             return "❌";
         }
         return "⚠️";
-    }
-
-    private static RunResult find(List<RunResult> results, String variant, String task, int repeat) {
-        return results.stream()
-                .filter(r -> r.variantId().equals(variant)
-                        && r.caseId().equals(task)
-                        && r.repeat() == repeat)
-                .findFirst()
-                .orElse(null);
     }
 
     private static RunResult first(List<RunResult> results, String variant) {

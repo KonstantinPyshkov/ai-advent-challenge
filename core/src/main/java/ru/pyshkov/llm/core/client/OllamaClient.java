@@ -134,7 +134,11 @@ public final class OllamaClient implements ChatModel {
             case 400 -> " Проверь параметры запроса.";
             default -> "";
         };
-        return new IOException("HTTP " + status + ": " + detail + hint);
+        String message = "HTTP " + status + ": " + detail + hint;
+        if (status == 429 || status >= 500) {
+            return new IOException(message);
+        }
+        return new NonRetryableException(message);
     }
 
     private static String abbreviate(String text) {

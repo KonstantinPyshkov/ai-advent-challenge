@@ -60,14 +60,7 @@ public final class DeepSeekClient implements ChatModel {
             request.stop().forEach(stop::add);
         }
 
-        if (request.schema() != null) {
-            ObjectNode responseFormat = body.putObject("response_format");
-            responseFormat.put("type", "json_schema");
-            ObjectNode jsonSchema = responseFormat.putObject("json_schema");
-            jsonSchema.put("name", "answer");
-            jsonSchema.put("strict", true);
-            jsonSchema.set("schema", request.schema());
-        } else if (request.jsonMode()) {
+        if (request.schema() != null || request.jsonMode()) {
             ObjectNode responseFormat = body.putObject("response_format");
             responseFormat.put("type", "json_object");
         }
@@ -142,7 +135,11 @@ public final class DeepSeekClient implements ChatModel {
             case 400 -> " Проверь параметры запроса.";
             default -> "";
         };
-        return new IOException("HTTP " + status + ": " + detail + hint);
+        String message = "HTTP " + status + ": " + detail + hint;
+        if (status == 429 || status >= 500) {
+            return new IOException(message);
+        }
+        return new NonRetryableException(message);
     }
 
     private static String abbreviate(String text) {

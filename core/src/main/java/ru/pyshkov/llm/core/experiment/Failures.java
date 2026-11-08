@@ -34,11 +34,11 @@ public final class Failures {
         if (response.content() == null || response.content().isBlank()) {
             if ("length".equals(response.doneReason())) {
                 int used = response.promptTokens() + response.completionTokens();
-                if (used >= request.numCtx()) {
-                    return "context_overflow";
-                }
                 if (response.completionTokens() >= request.maxPredict()) {
                     return "output_limit";
+                }
+                if (used >= request.numCtx()) {
+                    return "context_overflow";
                 }
                 return "length";
             }

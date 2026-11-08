@@ -57,13 +57,8 @@ public final class Main {
 
         LabConfig config = LabConfig.load(dayDir.resolve("config/experiment.properties"));
         Options options = Options.parse(args, config);
-        Experiment experiment = switch (day) {
-            case "day2" -> new Day02Experiment(
-                    dayDir, config, options.repeats(), options.model());
-            case "day3" -> new Day03Experiment(
-                    dayDir, config, options.repeats(), options.model());
-            default -> throw new IllegalStateException("Неизвестный день: " + day);
-        };
+        Experiment experiment = createExperiment(
+                day, dayDir, config, options.repeats(), options.model());
         List<RunPlan> plans = experiment.plans();
 
         if (options.dryRun()) {
@@ -74,10 +69,20 @@ public final class Main {
         DayWorkspace workspace = new DayWorkspace(dayDir);
         if (options.reportOnly()) {
             RunLog log = workspace.readRunLog();
-            Report report = experiment.report(log.runs());
-            Conclusion conclusion = experiment.conclusion(log.runs());
+            int logRepeats = log.runs().stream()
+                    .mapToInt(RunResult::repeat)
+                    .max()
+                    .orElse(1);
+            String logModel = log.model() == null || log.model().isBlank()
+                    ? config.model() : log.model();
+            Experiment reportExperiment = createExperiment(
+                    day, dayDir, config, logRepeats, logModel);
+            Report report = reportExperiment.report(log.runs());
+            Conclusion conclusion = reportExperiment.conclusion(log.runs());
             workspace.writeReport(report);
             workspace.writeConclusion(conclusion);
+            System.out.println("Отчёт из журнала: модель " + logModel
+                    + ", повторов " + logRepeats);
             System.out.println(report.console());
             System.out.println("Отчёт: " + workspace.reports().resolve("report.md").toAbsolutePath());
             System.out.println("Вывод: "
@@ -85,10 +90,12 @@ public final class Main {
             return;
         }
         ChatModel client = createModel(config, options.provider());
+        Runner runner = new Runner(client, config, workspace);
+        runner.warmup(plans);
+
         workspace.lock();
         try {
             workspace.clean();
-            Runner runner = new Runner(client, config, workspace);
             List<RunResult> results = runner.run(experiment.id(), experiment.title(), plans);
 
             Report report = experiment.report(results);
@@ -136,6 +143,16 @@ public final class Main {
                   --dry-run       показать план без запуска
                   --report-only   пересобрать отчёт из logs/runs.json без запросов
                 """);
+    }
+
+    private static Experiment createExperiment(
+            String day, Path dayDir, LabConfig config, int repeats, String model)
+            throws IOException {
+        return switch (day) {
+            case "day2" -> new Day02Experiment(dayDir, config, repeats, model);
+            case "day3" -> new Day03Experiment(dayDir, config, repeats, model);
+            default -> throw new IllegalStateException("Неизвестный день: " + day);
+        };
     }
 
     private static ChatModel createModel(LabConfig config, String provider) {
@@ -197,12 +214,12 @@ public final class Main {
                     "-a", user, "-s", service, "-w")
                     .redirectErrorStream(true)
                     .start();
-            String output = new String(
-                    process.getInputStream().readAllBytes(), StandardCharsets.UTF_8).strip();
             if (!process.waitFor(5, TimeUnit.SECONDS)) {
                 process.destroyForcibly();
                 return null;
             }
+            String output = new String(
+                    process.getInputStream().readAllBytes(), StandardCharsets.UTF_8).strip();
             return process.exitValue() == 0 ? output : null;
         } catch (IOException | InterruptedException e) {
             if (e instanceof InterruptedException) {

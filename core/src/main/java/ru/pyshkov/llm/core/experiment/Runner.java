@@ -5,6 +5,7 @@ import ru.pyshkov.llm.core.client.ChatModel;
 import ru.pyshkov.llm.core.client.ChatRequest;
 import ru.pyshkov.llm.core.client.ChatResponse;
 import ru.pyshkov.llm.core.client.Message;
+import ru.pyshkov.llm.core.client.NonRetryableException;
 import ru.pyshkov.llm.core.config.LabConfig;
 import ru.pyshkov.llm.core.workspace.DayWorkspace;
 
@@ -39,9 +40,6 @@ public final class Runner {
         String startedAt = OffsetDateTime.now().toString();
         List<RunResult> results = new ArrayList<>();
 
-        System.out.println("Модель: " + modelName);
-        System.out.println("Прогрев модели...");
-        warmup(modelName, firstRequest.numCtx());
         System.out.println("План: " + plans.size() + " прогонов");
         writeLog(experimentId, title, startedAt, modelName, plans.size(), results);
 
@@ -92,7 +90,17 @@ public final class Runner {
         return results;
     }
 
-    private void warmup(String modelName, int numCtx) throws IOException, InterruptedException {
+    public void warmup(List<RunPlan> plans) throws IOException, InterruptedException {
+        if (plans.isEmpty()) {
+            throw new IOException("План эксперимента пуст");
+        }
+        ChatRequest firstRequest = plans.get(0).steps().get(0).request(List.of());
+        System.out.println("Модель: " + firstRequest.model());
+        System.out.println("Прогрев модели...");
+        warmupModel(firstRequest.model(), firstRequest.numCtx());
+    }
+
+    private void warmupModel(String modelName, int numCtx) throws IOException, InterruptedException {
         ChatRequest request = ChatRequest.builder()
                 .model(modelName)
                 .message(Message.user("ping"))
@@ -126,6 +134,9 @@ public final class Runner {
                             wallClockMs);
                 }
                 return new StepResult(step.label(), request, response, null, wallClockMs);
+            } catch (NonRetryableException e) {
+                long wallClockMs = (System.nanoTime() - started) / 1_000_000;
+                return new StepResult(step.label(), request, null, e.getMessage(), wallClockMs);
             } catch (IOException e) {
                 last = e;
                 if (attempt < config.retries()) {

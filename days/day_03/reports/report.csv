@@ -1,9 +1,9 @@
 strategy,reasoning,correct,total,format_ok,failures,avg_tokens,avg_request_ms
-direct,off,5,5,5,0,103,1052
-direct,on,5,5,5,0,228,1521
-step_by_step,off,5,5,5,0,207,1405
-step_by_step,on,5,5,5,0,327,1912
-prompt_then_solve,off,4,5,4,0,782,3532
-prompt_then_solve,on,5,5,5,0,1688,8290
-panel,off,5,5,5,0,221,1496
-panel,on,5,5,5,0,408,2473
+direct,off,5,5,5,0,103,1095
+direct,on,5,5,5,0,215,1494
+step_by_step,off,5,5,5,0,197,1350
+step_by_step,on,5,5,5,0,324,1824
+prompt_then_solve,off,5,5,5,0,770,3659
+prompt_then_solve,on,5,5,5,0,1519,7998
+panel,off,5,5,5,0,225,1416
+panel,on,5,5,5,0,373,2354
