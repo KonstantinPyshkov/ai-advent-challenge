@@ -1,0 +1,7 @@
+variant,json_ok,schema_ok,fields_ok,truncated,avg_prompt_tokens,avg_completion_tokens,avg_total_tokens,avg_request_ms
+baseline,0,0,0,1,163,3189,3352,34295
+format,3,3,0,0,269,528,797,5649
+max_tokens,0,0,0,3,269,120,389,1301
+stop,0,0,0,0,269,618,887,6467
+json_mode,3,0,0,0,171,483,654,5155
+schema,3,3,0,0,173,643,816,6829

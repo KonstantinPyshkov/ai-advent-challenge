@@ -1,0 +1,57 @@
+{
+  "line": "Замоскворецкая",
+  "station_count": 24,
+  "transfers": [
+    {
+      "station": "Театральная",
+      "connections": [
+        {"line": 1, "station": "Охотный Ряд"},
+        {"line": 3, "station": "Площадь Революции"}
+      ]
+    },
+    {
+      "station": "Белорусская",
+      "connections": [
+        {"line": 5, "station": "Белорусская"}
+      ]
+    },
+    {
+      "station": "Павелецкая",
+      "connections": [
+        {"line": 5, "station": "Павелецкая"}
+      ]
+    },
+    {
+      "station": "Новокузнецкая",
+      "connections": [
+        {"line": 6, "station": "Третьяковская"},
+        {"line": 8, "station": "Третьяковская"}
+      ]
+    },
+    {
+      "station": "Тверская",
+      "connections": [
+        {"line": 7, "station": "Пушкинская"},
+        {"line": 9, "station": "Чеховская"}
+      ]
+    },
+    {
+      "station": "Каширская",
+      "connections": [
+        {"line": 11, "station": "Каширская"}
+      ]
+    },
+    {
+      "station": "Динамо",
+      "connections": [
+        {"line": 11, "station": "Петровский парк"}
+      ]
+    },
+    {
+      "station": "Красногвардейская",
+      "connections": [
+        {"line": 10, "station": "Зябликово"}
+      ]
+    }
+  ]
+}

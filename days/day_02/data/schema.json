@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "line": {
+      "type": "string"
+    },
+    "station_count": {
+      "type": "integer"
+    },
+    "transfers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "station": {
+            "type": "string"
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "line": {
+                  "type": "integer"
+                },
+                "station": {
+                  "type": "string"
+                }
+              },
+              "required": ["line", "station"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["station", "connections"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["line", "station_count", "transfers"],
+  "additionalProperties": false
+}

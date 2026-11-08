@@ -243,8 +243,8 @@ public final class Main {
                   day01 [--model M] [--base-url URL] "вопрос"
 
                 Примеры:
-                  ./scripts/run.sh "Привет! Кто ты?"
-                  ./scripts/run.sh --model qwen3.5:2b-mlx "Сколько будет 17 × 23?"
+                  ./scripts/run.sh day1 "Привет! Кто ты?"
+                  ./scripts/run.sh day1 --model qwen3.5:2b-mlx "Сколько будет 17 × 23?"
 
                 Флаги:
                   --model M        переопределить модель из config/day.properties

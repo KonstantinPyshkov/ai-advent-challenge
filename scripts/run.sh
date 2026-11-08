@@ -16,5 +16,19 @@ if [ -z "$MVN" ]; then
   fi
 fi
 
-"$MVN" -q -Dmaven.repo.local="$ROOT/.m2repo" -pl days/day_01 -am package
-exec java -jar days/day_01/target/day01.jar "$@"
+case "${1:-}" in
+  day1)
+    shift
+    "$MVN" -q -Dmaven.repo.local="$ROOT/.m2repo" -pl days/day_01 -am package
+    exec java -jar days/day_01/target/day01.jar "$@"
+    ;;
+  day2)
+    shift
+    "$MVN" -q -Dmaven.repo.local="$ROOT/.m2repo" -pl cli -am package
+    exec java -jar cli/target/lab.jar day2 "$@"
+    ;;
+  *)
+    echo "Использование: ./scripts/run.sh day1 \"вопрос\" | ./scripts/run.sh day2 [--dry-run]" >&2
+    exit 2
+    ;;
+esac
