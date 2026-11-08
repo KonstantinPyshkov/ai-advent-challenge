@@ -1,0 +1,27 @@
+# Build
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local secrets / local overrides — never commit
+config/local.properties
+.env
+*.key
+
+# Scratch and partial runs
+drafts/
+*.partial.json
+*.tmp
+
+# Helper logs; experiment logs are JSON and are committed
+*.log
