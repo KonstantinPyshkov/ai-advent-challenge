@@ -91,7 +91,7 @@ public final class Day02Experiment implements Experiment {
                         CASE,
                         variant.id(),
                         repeat,
-                        List.of(new Step("answer", variant.request())),
+                        List.of(Step.fixed("answer", variant.request())),
                         variant.labels(),
                         checker
                 ));

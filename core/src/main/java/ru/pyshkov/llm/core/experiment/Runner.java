@@ -34,13 +34,14 @@ public final class Runner {
             throw new IOException("План эксперимента пуст");
         }
 
-        String modelName = plans.get(0).steps().get(0).request().model();
+        ChatRequest firstRequest = plans.get(0).steps().get(0).request(List.of());
+        String modelName = firstRequest.model();
         String startedAt = OffsetDateTime.now().toString();
         List<RunResult> results = new ArrayList<>();
 
         System.out.println("Модель: " + modelName);
         System.out.println("Прогрев модели...");
-        warmup(modelName);
+        warmup(modelName, firstRequest.numCtx());
         System.out.println("План: " + plans.size() + " прогонов");
         writeLog(experimentId, title, startedAt, modelName, plans.size(), results);
 
@@ -52,7 +53,7 @@ public final class Runner {
             long wallClockMs = 0;
 
             for (Step step : plan.steps()) {
-                StepResult stepResult = execute(step);
+                StepResult stepResult = execute(step, stepResults);
                 stepResults.add(stepResult);
                 wallClockMs += stepResult.wallClockMs();
                 if (stepResult.error() != null) {
@@ -91,26 +92,40 @@ public final class Runner {
         return results;
     }
 
-    private void warmup(String modelName) throws IOException, InterruptedException {
+    private void warmup(String modelName, int numCtx) throws IOException, InterruptedException {
         ChatRequest request = ChatRequest.builder()
                 .model(modelName)
                 .message(Message.user("ping"))
                 .temperature(0.0)
                 .maxPredict(16)
                 .think(false)
+                .numCtx(numCtx)
                 .build();
         model.chat(request);
     }
 
-    private StepResult execute(Step step) throws InterruptedException {
+    private StepResult execute(Step step, List<StepResult> previous) throws InterruptedException {
+        ChatRequest request;
+        try {
+            request = step.request(previous);
+        } catch (RuntimeException e) {
+            return new StepResult(step.label(), null, null,
+                    "ошибка построения шага: " + e.getMessage(), 0);
+        }
+
         IOException last = null;
 
         for (int attempt = 0; attempt <= config.retries(); attempt++) {
             long started = System.nanoTime();
             try {
-                ChatResponse response = model.chat(step.request());
+                ChatResponse response = model.chat(request);
                 long wallClockMs = (System.nanoTime() - started) / 1_000_000;
-                return new StepResult(step.label(), step.request(), response, null, wallClockMs);
+                if (response.content() == null || response.content().isBlank()) {
+                    return new StepResult(step.label(), request, response,
+                            "пустой content (" + Failures.describe(response, request) + ")",
+                            wallClockMs);
+                }
+                return new StepResult(step.label(), request, response, null, wallClockMs);
             } catch (IOException e) {
                 last = e;
                 if (attempt < config.retries()) {
@@ -122,9 +137,8 @@ public final class Runner {
             }
         }
 
-        long wallClockMs = 0;
-        return new StepResult(step.label(), step.request(), null,
-                last == null ? "неизвестная ошибка" : last.getMessage(), wallClockMs);
+        return new StepResult(step.label(), request, null,
+                last == null ? "неизвестная ошибка" : last.getMessage(), 0);
     }
 
     private CheckResult safeCheck(RunPlan plan, List<StepResult> steps) {
@@ -154,12 +168,12 @@ public final class Runner {
         line.append(String.format("[%02d/%02d] %-12s r%d ", done, total,
                 result.variantId(), result.repeat()));
         if (!result.success()) {
-            line.append("ОШИБКА: ").append(result.error());
+            StepResult lastStep = result.steps().isEmpty()
+                    ? null : result.steps().get(result.steps().size() - 1);
+            line.append("ОШИБКА: ").append(Failures.classify(lastStep))
+                    .append(" — ").append(result.error());
         } else {
-            line.append("json=").append(result.check().flag("json"));
-            line.append(" schema=").append(result.check().flag("schema"));
-            line.append(" fields=").append(result.check().flag("fields"));
-            line.append(" truncated=").append(result.check().flag("truncated"));
+            line.append("ok");
         }
         System.out.println(line);
     }

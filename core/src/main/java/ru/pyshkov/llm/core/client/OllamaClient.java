@@ -79,15 +79,11 @@ public final class OllamaClient implements ChatModel {
 
         JsonNode root = JSON.readTree(response.body());
         JsonNode content = root.path("message").path("content");
-        if (!content.isTextual() || content.asText().isBlank()) {
-            throw new IOException("Ollama вернула пустой ответ: " + abbreviate(response.body()));
-        }
-
         JsonNode thinking = root.path("message").path("thinking");
         long totalNs = root.path("total_duration").asLong(0);
         long loadNs = root.path("load_duration").asLong(0);
 
-        String contentText = content.asText();
+        String contentText = content.isTextual() ? content.asText() : "";
         boolean stopEmulated = false;
         if (request.emulateStop() && !request.stop().isEmpty()) {
             int cut = -1;

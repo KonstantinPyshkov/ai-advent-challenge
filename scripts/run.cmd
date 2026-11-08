@@ -17,5 +17,12 @@ if "%~1"=="day2" (
   exit /b %errorlevel%
 )
 
+if "%~1"=="day3" (
+  call mvn -q -Dmaven.repo.local="%~dp0..\.m2repo" -pl cli -am package
+  if errorlevel 1 exit /b %errorlevel%
+  java -jar "cli\target\lab.jar" day3 %2 %3 %4 %5 %6
+  exit /b %errorlevel%
+)
+
 echo Usage: run.cmd day1 "question" ^| run.cmd day2 [--dry-run]
 exit /b 2

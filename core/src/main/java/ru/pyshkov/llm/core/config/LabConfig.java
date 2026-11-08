@@ -8,8 +8,10 @@ import java.util.Properties;
 
 /** Настройки одного эксперимента. */
 public record LabConfig(
+        String provider,
         String baseUrl,
         String model,
+        String apiKeyEnv,
         int timeoutSeconds,
         int repeats,
         int retries,
@@ -27,8 +29,10 @@ public record LabConfig(
         }
 
         return new LabConfig(
+                text(props, "llm.provider", "ollama"),
                 text(props, "llm.base-url", "http://127.0.0.1:11434"),
                 text(props, "llm.model", "qwen3.5:35b-a3b"),
+                text(props, "llm.api-key-env", "DEEPSEEK_API_KEY"),
                 number(props, "llm.timeout-seconds", 300),
                 number(props, "runner.repeats", 5),
                 number(props, "runner.retries", 2),
@@ -37,11 +41,11 @@ public record LabConfig(
     }
 
     public LabConfig withModel(String value) {
-        return new LabConfig(baseUrl, value, timeoutSeconds, repeats, retries, delayMs);
+        return new LabConfig(provider, baseUrl, value, apiKeyEnv, timeoutSeconds, repeats, retries, delayMs);
     }
 
     public LabConfig withRepeats(int value) {
-        return new LabConfig(baseUrl, model, timeoutSeconds, value, retries, delayMs);
+        return new LabConfig(provider, baseUrl, model, apiKeyEnv, timeoutSeconds, value, retries, delayMs);
     }
 
     private static String text(Properties props, String key, String fallback) {

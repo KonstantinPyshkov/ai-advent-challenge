@@ -28,3 +28,6 @@ drafts/
 
 # Local Maven repository (keeps builds inside the project)
 .m2repo/
+
+# Runtime lock for a day experiment
+.run.lock
