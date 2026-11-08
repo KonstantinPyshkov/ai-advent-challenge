@@ -79,7 +79,8 @@ mvn package
 Самопроверки без внешних тестовых зависимостей:
 
 ```bash
-./scripts/test.sh
+./scripts/test.sh   # Runner, Failures, Markdown, Day02, Day03
+./scripts/check.sh  # build + self-tests + dry-run Day02/Day03
 ```
 
 Интерактивный запуск — одна команда (macOS/Linux):
@@ -144,7 +145,8 @@ docs/
 scripts/
   run.sh             интерактивный запуск и сборка
   run.cmd            запуск в Windows
-  test.sh            самопроверки core и Дня 3
+  test.sh            самопроверки core, Дня 2 и Дня 3
+  check.sh           полная проверка перед новым днём
 ```
 
 По мере добавления дней структура будет расширяться: в каталоге дня появятся
